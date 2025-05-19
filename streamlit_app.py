@@ -2,6 +2,7 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 cnx = st.connection("snowflake")
+import requests
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
@@ -48,5 +49,3 @@ time_to_insert = st.button('Submit Order')
 if time_to_insert:
     session.sql(my_insert_stmt).collect()
     st.success('Your Smoothie is ordered!', icon="✅")
-
-import requests
